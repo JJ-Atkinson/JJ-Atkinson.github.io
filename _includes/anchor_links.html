@@ -1,0 +1,32 @@
+<script>
+
+  var forAll = (arr, fun) => Array.prototype.forEach.call(arr, fun)
+  
+  var anchorForId = function (id) {
+    var anchor = document.createElement("a");
+    anchor.className = "header-link";
+    anchor.href      = "#" + id;
+    anchor.innerHTML = "<i class=\"fa fa-link\"></i>";
+    return anchor;
+  };
+
+  var linkifyAnchors = function (level, containingSelector) {
+    var headerSelector = containingSelector + ' ' + ("h" + level);
+    forAll(document.querySelectorAll(headerSelector), (header) => {
+
+      if (typeof header.id !== "undefined" && header.id !== "") {
+        header.appendChild(anchorForId(header.id));
+      }
+  });
+  };
+
+  document.onreadystatechange = function () {
+    if (this.readyState === "complete" ) {
+      var contentSelector = '.post-content';
+      
+      for (var level = 1; level <= 6; level++) {
+          linkifyAnchors(level, contentSelector);
+      }
+    }
+  };
+</script>

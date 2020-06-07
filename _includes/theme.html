@@ -1,0 +1,24 @@
+<script>
+function qS(sel) {return document.querySelector(sel);}
+
+function getCookie(name) {
+  // http://stackoverflow.com/a/15724300/4683264
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
+if (document.cookie.indexOf('dark') === -1 &&
+    document.cookie.indexOf('light') > -1) {
+    document.cookie = "theme=light;  expires=Fri, 31 Dec 2020 12:00:00 UTC; path=/";
+}
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    if (document.cookie.indexOf('dark') > -1) {
+        qS('body').className = 'dark';
+        qS('#git-logo').src = "/images/github-footer-dark.png";
+        qS('#jek-logo').src = "/images/jekyll-footer-dark.png";
+        qS('#git-logo').height = 31;
+    }
+});
+</script>

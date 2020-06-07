@@ -1,0 +1,21 @@
+---
+layout: basic_only_title
+title: Archives
+permalink: /archives/
+---
+
+
+<ul id="archives-list">
+{% for post in site.posts %}
+<li>
+    <a href="{{ post.url }}">
+        {{ post.title }}
+    </a>
+    <div class="post-meta">
+      <span class="post-date">
+        {{ post.date | date: '%B %d, %Y' }}
+      </span>
+    </div>
+</li>
+{% endfor %}
+</ul>

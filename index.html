@@ -1,0 +1,27 @@
+---
+layout: home
+title: Blog
+overview: true
+---
+
+{% for post in site.posts limit 4 %}
+<div class="post-content homepage-post">
+    
+<h2 class="title">
+    <a href="{{ post.url }}">
+        {{ post.title }}
+    </a>
+</h2>
+<div class="post-meta">
+    <span class="post-date">{{ post.date | date: '%B %d, %Y' }}</span>
+</div>
+<div class="post-content">
+    {{ post.content }}
+</div>
+
+</div>
+{% endfor %}
+
+<div class="see-all-link-wrapper">    
+    <a href="/archives/" id="see-all-link">See all posts...</a>
+</div>

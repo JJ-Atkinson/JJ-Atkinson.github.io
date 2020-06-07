@@ -1,0 +1,21 @@
+permalink: /archives/:year/:month/:day/:title.html
+
+# Site settings
+title: Jarrett Atkinson
+description: "Jarrett's blog"
+baseurl: ""
+# url: "http://somesite.org"
+repository: https://github.com/
+
+
+# Build settings
+highlighter: rouge
+markdown: kramdown
+relative_permalinks: false    
+exclude: [node_modules]
+
+version: "2020.6.6"
+
+sass:
+  sass_dir: _scss
+  style: compressed
